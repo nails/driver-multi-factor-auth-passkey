@@ -12,7 +12,7 @@ use Nails\MFA\Driver\Authentication\Passkey\Settings\Settings;
 use Nails\MFA\Exception\InvalidCodeException;
 use Nails\MFA\Exception\MfaException;
 use Nails\MFA\Interfaces\Authentication\Driver;
-use Nails\MFA\Interfaces\Authentication\Driver\Interactive;
+use Nails\MFA\Interfaces\Authentication\Driver\FormFragment;
 use Nails\MFA\Resource\Token;
 use Nails\MFA\Resource\UserMethod;
 use stdClass;
@@ -21,12 +21,12 @@ use stdClass;
  * The "Passkey" MFA driver.
  *
  * Unlike Email/Authenticator this is not a code the user types: the challenge and
- * setup screens run a WebAuthn ceremony in the browser (see the Interactive
+ * setup screens run a WebAuthn ceremony in the browser (see the FormFragment
  * interface) and hand the result back as JSON in the shared, hidden `code` input.
  * All of the WebAuthn/library detail lives in module-auth's Passkey service; this
  * class only adapts it to the MFA module's driver contract.
  */
-class Passkey extends Base implements Driver, Interactive
+class Passkey extends Base implements Driver, FormFragment
 {
     /**
      * Where the challenge minted for the current verify attempt is stashed on the
