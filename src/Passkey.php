@@ -4,7 +4,7 @@ namespace Nails\MFA\Driver\Authentication;
 
 use Nails\Auth;
 use Nails\Auth\Resource\User;
-use Nails\Auth\Service\Passkey;
+use Nails\Auth\Service\Passkey as PasskeyService;
 use Nails\Common\Driver\Base;
 use Nails\Common\Service\Asset;
 use Nails\Common\Service\UserFeedback;
@@ -65,7 +65,7 @@ class Passkey extends Base implements Driver, FormFragment
 
     public function isEnabled(): bool
     {
-        /** @var Passkey $oPasskeyService */
+        /** @var PasskeyService $oPasskeyService */
         $oPasskeyService = Factory::service('Passkey', Auth\Constants::MODULE_SLUG);
         return $oPasskeyService->isEnabled();
     }
