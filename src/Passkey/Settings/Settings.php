@@ -33,16 +33,6 @@ class Settings implements Interfaces\Component\Settings
 
     // --------------------------------------------------------------------------
 
-    /**
-     * Satisfies nails/common develop until getPermission() ships.
-     */
-    public function getPermissions(): array
-    {
-        return [];
-    }
-
-    // --------------------------------------------------------------------------
-
     public function get(): array
     {
         /** @var Setting $oLabel */
